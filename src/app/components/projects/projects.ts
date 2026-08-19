@@ -19,6 +19,46 @@ interface Project {
 export class Projects {
 
   projects: Project[] = [
+     {
+      title: 'BiteMub',
+
+      description:
+        'Application e-commerce moderne avec catalogue de produits, panier et interface responsive.',
+
+      image: 'bitemub1.png',
+
+      tags: [
+        'React',
+        'Vite',
+        'Tailwind CSS'
+      ],
+
+      demoUrl:
+        'https://mon-projet-swart-theta.vercel.app/',
+
+      codeUrl:
+        'https://github.com/Lesline-noteze/mon-projet'
+    },
+     {
+      title: 'Le caléo doré',
+
+      description:
+        ' interface responsive.',
+
+      image: 'calao.png',
+
+      tags: [
+        'Angular',
+        'cli',
+        'CSS 5'
+      ],
+
+      demoUrl:
+        'https://caleo-dore.vercel.app/',
+
+      codeUrl:
+        'https://github.com/Lesline-noteze/le-caleo-dore.git'
+    },
 
     {
       title: 'Virtual Election',
@@ -41,26 +81,7 @@ export class Projects {
         'https://github.com/Lesline-noteze/virtual-election'
     },
 
-    {
-      title: 'BiteMub',
-
-      description:
-        'Application e-commerce moderne avec catalogue de produits, panier et interface responsive.',
-
-      image: 'bitemub1.png',
-
-      tags: [
-        'React',
-        'Vite',
-        'Tailwind CSS'
-      ],
-
-      demoUrl:
-        'https://mon-projet-swart-theta.vercel.app/',
-
-      codeUrl:
-        'https://github.com/Lesline-noteze/mon-projet'
-    },
+   
      {
       title: 'Délice de Douala',
 
