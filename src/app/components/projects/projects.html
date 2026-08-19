@@ -1,0 +1,60 @@
+<section class="projects" id="projects">
+
+  <div class="projects-background">
+    <div class="projects-glow projects-glow-one"></div>
+    <div class="projects-glow projects-glow-two"></div>
+  </div>
+
+  <div class="projects-container">
+
+    <p class="section-overline">PROJETS</p>
+
+    <h2 class="section-title">
+      Mes réalisations
+    </h2>
+
+    <p class="section-description">
+      Une sélection de projets sur lesquels j'ai travaillé,
+      du prototype à la mise en production.
+    </p>
+
+    <div class="projects-grid">
+
+      @for (project of projects; track project.title) {
+        <div class="project-card">
+
+          <div class="project-image">
+            <img [src]="project.image" [alt]="project.title">
+          </div>
+
+          <div class="project-content">
+
+            <h3 class="project-title">{{ project.title }}</h3>
+
+            <p class="project-description">{{ project.description }}</p>
+
+            <div class="project-tags">
+              @for (tag of project.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+
+            <div class="project-links">
+              <a [href]="project.demoUrl" target="_blank" class="project-link primary">
+                Voir le projet ↗
+              </a>
+              <a [href]="project.codeUrl" target="_blank" class="project-link secondary">
+                Code source
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      }
+
+    </div>
+
+  </div>
+
+</section>

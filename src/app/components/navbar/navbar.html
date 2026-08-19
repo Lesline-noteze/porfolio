@@ -1,0 +1,176 @@
+<header class="navbar">
+
+  <div class="navbar-container">
+
+    <!-- LOGO -->
+    <a
+      routerLink="/accueil"
+      class="logo"
+      (click)="navigateTo('accueil')"
+    >
+      <span class="logo-mark">N</span>
+
+      <span class="logo-name">
+        Lesline Notézé<span>.</span>
+      </span>
+    </a>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-links">
+
+      <a
+        routerLink="/accueil"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="navigateTo('accueil')"
+      >
+        Accueil
+      </a>
+
+      <a
+        routerLink="/about"
+        routerLinkActive="active"
+        (click)="navigateTo('about')"
+      >
+        À propos
+      </a>
+
+      <a
+        routerLink="/skills"
+        routerLinkActive="active"
+        (click)="navigateTo('skills')"
+      >
+        Compétences
+      </a>
+
+      <a
+        routerLink="/projects"
+        routerLinkActive="active"
+        (click)="navigateTo('projects')"
+      >
+        Projets
+      </a>
+
+      <a
+        routerLink="/experience"
+        routerLinkActive="active"
+        (click)="navigateTo('experience')"
+      >
+        Expérience
+      </a>
+
+      <a
+        routerLink="/contact"
+        routerLinkActive="active"
+        (click)="navigateTo('contact')"
+      >
+        Contact
+      </a>
+
+    </nav>
+
+    <!-- ACTIONS -->
+    <div class="navbar-actions">
+
+      <button
+        class="theme-button"
+        type="button"
+        (click)="toggleTheme()"
+        [attr.aria-label]="
+          isDarkMode()
+            ? 'Activer le mode clair'
+            : 'Activer le mode sombre'
+        "
+      >
+        @if (isDarkMode()) {
+          <span class="theme-icon">☀</span>
+        } @else {
+          <span class="theme-icon">☾</span>
+        }
+      </button>
+
+      <a
+        href="/assets/cv-lesline.pdf"
+        class="hire-button"
+        download
+      >
+        Télécharger CV
+      </a>
+
+      <button
+        class="menu-button"
+        type="button"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-label="Ouvrir le menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- MENU MOBILE -->
+  @if (menuOpen()) {
+
+    <nav class="mobile-menu">
+
+      <a
+        routerLink="/accueil"
+        (click)="navigateTo('accueil')"
+      >
+        Accueil
+      </a>
+
+      <a
+        routerLink="/about"
+        (click)="navigateTo('about')"
+      >
+        À propos
+      </a>
+
+      <a
+        routerLink="/skills"
+        (click)="navigateTo('skills')"
+      >
+        Compétences
+      </a>
+
+      <a
+        routerLink="/projects"
+        (click)="navigateTo('projects')"
+      >
+        Projets
+      </a>
+
+      <a
+        routerLink="/experience"
+        (click)="navigateTo('experience')"
+      >
+        Expérience
+      </a>
+
+      <a
+        routerLink="/contact"
+        (click)="navigateTo('contact')"
+      >
+        Contact
+      </a>
+
+      <a
+        href="/assets/cv-lesline.pdf"
+        class="mobile-cv"
+        download
+        (click)="closeMenu()"
+      >
+        Télécharger mon CV
+      </a>
+
+    </nav>
+
+  }
+
+</header>

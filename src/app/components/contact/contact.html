@@ -1,0 +1,115 @@
+<section class="contact" id="contact">
+
+  <div class="contact-background">
+    <div class="contact-orb contact-orb-one"></div>
+    <div class="contact-orb contact-orb-two"></div>
+  </div>
+
+  <div class="contact-container">
+
+    <!-- INTRO -->
+    <div class="contact-header">
+
+      <span class="section-overline">
+        CONTACT
+      </span>
+
+      <h2 class="section-title">
+        Construisons quelque chose
+        <span>de remarquable.</span>
+      </h2>
+
+      <p class="section-description">
+        Vous avez un projet, une idée ou une opportunité à partager ?
+        Je suis toujours ouverte aux nouvelles collaborations et aux
+        projets qui permettent de créer des expériences web utiles,
+        modernes et élégantes.
+      </p>
+
+    </div>
+
+
+    <!-- CTA PRINCIPAL -->
+    <div class="contact-cta">
+
+      <div class="cta-content">
+
+        <span class="cta-label">
+          UNE IDÉE EN TÊTE ?
+        </span>
+
+        <h3>
+          Parlons de votre projet.
+        </h3>
+
+        <p>
+          Le meilleur moyen de commencer est simplement
+          de prendre contact.
+        </p>
+
+      </div>
+
+      <a
+        href="https://wa.me/237652061013"
+        class="contact-button"
+      >
+        <span>Me contacter</span>
+        <span class="button-arrow">↗</span>
+      </a>
+
+    </div>
+
+
+    <!-- INFORMATIONS -->
+    <div class="contact-details">
+
+      @for (info of contactInfo; track info.label) {
+
+        <a
+          [href]="info.href || null"
+          [attr.target]="info.external ? '_blank' : null"
+          [attr.rel]="info.external ? 'noopener noreferrer' : null"
+          class="contact-item"
+        >
+
+          <div class="contact-icon">
+            {{ info.icon }}
+          </div>
+
+          <div class="contact-item-content">
+
+            <span class="contact-label">
+              {{ info.label }}
+            </span>
+
+            <span class="contact-value">
+              {{ info.value }}
+            </span>
+
+          </div>
+
+          <span class="contact-arrow">
+            ↗
+          </span>
+
+        </a>
+
+      }
+
+    </div>
+
+
+    <!-- DISPONIBILITÉ -->
+    <div class="availability">
+
+      <span class="availability-dot"></span>
+
+      <span>
+        Disponible pour de nouvelles opportunités
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
