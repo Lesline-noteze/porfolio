@@ -59,6 +59,25 @@ export class Projects {
       codeUrl:
         'https://github.com/Lesline-noteze/le-caleo-dore.git'
     },
+     {
+      title: 'Délice de Douala',
+
+      description:
+        'Application e-commerce moderne avec catalogue de produits, panier et interface responsive.',
+
+      image: 'delice-de-douala.png',
+
+      tags: [
+        'Angular Cli',
+        ' CSS 5'
+      ],
+
+      demoUrl:
+        'https://delice-de-douala-8woy.vercel.app/',
+
+      codeUrl:
+        'https://github.com/Lesline-noteze/le-caleo-dore.git'
+    },
 
     {
       title: 'Virtual Election',
@@ -82,25 +101,7 @@ export class Projects {
     },
 
    
-     {
-      title: 'Délice de Douala',
-
-      description:
-        'Application e-commerce moderne avec catalogue de produits, panier et interface responsive.',
-
-      image: 'delice-de-douala.png',
-
-      tags: [
-        'Angular Cli',
-        ' CSS 5'
-      ],
-
-      demoUrl:
-        'https://delice-de-douala-8woy.vercel.app/',
-
-      codeUrl:
-        'https://github.com/Lesline-noteze/le-caleo-dore.git'
-    }
+    
 
   ];
 
