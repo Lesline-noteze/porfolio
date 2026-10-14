@@ -1,13 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import {
+  FormBuilder,
+  ReactiveFormsModule,
+  Validators
+} from '@angular/forms';
+
+import { ContactData, ContactService } from '../../services/contact';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './contact.html',
   styleUrl: './contact.css'
 })
 export class Contact {
+
+  private readonly fb = inject(FormBuilder);
+  private readonly contactService = inject(ContactService);
+
+  readonly status = signal<'idle' | 'sending' | 'ok' | 'error'>('idle');
+  readonly errorMessage = signal('');
+
+  readonly form = this.fb.group({
+    name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    message: ['', Validators.required],
+    website: [''] // honeypot anti-robot : doit rester vide
+  });
 
   contactInfo = [
     {
@@ -33,4 +54,51 @@ export class Contact {
     }
   ];
 
+  submit(): void {
+
+    if (this.status() === 'sending') {
+      return;
+    }
+
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    this.status.set('sending');
+    this.errorMessage.set('');
+
+    this.contactService
+      .send(this.form.getRawValue() as ContactData)
+      .subscribe({
+
+        next: () => {
+          this.status.set('ok');
+          this.form.reset({
+            name: '',
+            email: '',
+            message: '',
+            website: ''
+          });
+        },
+
+        error: (err: HttpErrorResponse) => {
+          if (err.status === 429) {
+            this.errorMessage.set(
+              'Veuillez patienter une minute avant un nouvel envoi.'
+            );
+          } else if (err.status === 400) {
+            this.errorMessage.set(
+              'Vérifiez les informations saisies et réessayez.'
+            );
+          } else {
+            this.errorMessage.set(
+              'Une erreur est survenue. Veuillez réessayer.'
+            );
+          }
+          this.status.set('error');
+        }
+
+      });
+  }
 }
